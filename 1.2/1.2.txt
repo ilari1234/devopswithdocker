@@ -1,0 +1,4 @@
+Ilari-MacBook-Pro-2:devopswithdocker ilarilehtonen$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+Ilari-MacBook-Pro-2:1.2 ilarilehtonen$ docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE

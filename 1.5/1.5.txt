@@ -1,0 +1,10 @@
+Ilari-MacBook-Pro-2:~ ilarilehtonen$ docker run -d -it devopsdockeruh/simple-web-service:alpine
+Ilari-MacBook-Pro-2:~ ilarilehtonen$ docker exec -it happy_pike sh
+/usr/src/app # tail -f ./text.log
+
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+
+Ilari-MacBook-Pro-2:~ ilarilehtonen$ docker images
+REPOSITORY                          TAG       IMAGE ID       CREATED        SIZE
+devopsdockeruh/simple-web-service   ubuntu    4e3362e907d5   3 months ago   83MB
+devopsdockeruh/simple-web-service   alpine    fd312adc88e0   3 months ago   15.7MB

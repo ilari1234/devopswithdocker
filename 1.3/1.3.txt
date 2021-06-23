@@ -1,0 +1,11 @@
+Commands:
+Ilari-MacBook-Pro-2:devopswithdocker ilarilehtonen$ docker run -d -it devopsdockeruh/simple-web-service:ubuntu
+Ilari-MacBook-Pro-2:devopswithdocker ilarilehtonen$ docker container ls
+Ilari-MacBook-Pro-2:devopswithdocker ilarilehtonen$ docker exec -it great_newton bash
+root@3fed8cd767d2:/usr/src/app# tail -f ./text.log
+root@3fed8cd767d2:/usr/src/app# exit
+Ilari-MacBook-Pro-2:devopswithdocker ilarilehtonen$ docker kill great_newton
+Ilari-MacBook-Pro-2:devopswithdocker ilarilehtonen$ docker rm great_newton
+
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+

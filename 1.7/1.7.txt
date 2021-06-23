@@ -1,0 +1,2 @@
+Ilari-MacBook-Pro-2:1.7 ilarilehtonen$ docker build . -t simple-server
+Ilari-MacBook-Pro-2:1.7 ilarilehtonen$ docker run simple-server

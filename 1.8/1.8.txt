@@ -1,0 +1,1 @@
+Ilari-MacBook-Pro-2:devopswithdocker ilarilehtonen$ docker run -i curler

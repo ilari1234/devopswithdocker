@@ -1,0 +1,2 @@
+Ilari-MacBook-Pro-2:1.9 ilarilehtonen$ touch text.log
+Ilari-MacBook-Pro-2:1.9 ilarilehtonen$ docker run -v "$(pwd)/text.log:/usr/src/app/text.log" devopsdockeruh/simple-web-service

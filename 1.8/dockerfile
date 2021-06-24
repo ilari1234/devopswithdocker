@@ -1,0 +1,12 @@
+FROM ubuntu
+
+RUN apt update && apt upgrade -y
+RUN apt install curl -y
+
+WORKDIR /usr/src/app
+
+COPY start.sh .
+
+RUN chmod +x start.sh
+
+CMD ./start.sh

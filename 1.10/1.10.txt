@@ -1,0 +1,1 @@
+Ilari-MacBook-Pro-2:1.10 ilarilehtonen$ docker run -d -p 8080:8080 devopsdockeruh/simple-web-service:alpine server

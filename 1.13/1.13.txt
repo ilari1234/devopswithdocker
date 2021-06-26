@@ -1,0 +1,1 @@
+Ilari-MacBook-Pro-2:1.13 ilarilehtonen$ docker run -p 8080:8080  backend

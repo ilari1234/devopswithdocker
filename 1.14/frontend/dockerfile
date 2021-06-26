@@ -1,0 +1,21 @@
+FROM ubuntu
+WORKDIR /usr/src/app
+COPY . .
+#install node
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash
+RUN apt update
+RUN apt install nodejs -y
+RUN apt install npm -y
+#check installation
+RUN node -v
+RUN npm -v
+#install packages
+RUN npm install
+#set backend url
+ENV REACT_APP_BACKEND_URL=http://localhost:8080
+#http://example.com
+#build static files 
+RUN npm run build
+#install serve
+RUN npm install -g serve
+CMD ["serve", "-s", "-l", "5000", "build"]

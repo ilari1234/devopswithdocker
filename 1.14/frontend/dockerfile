@@ -1,11 +1,6 @@
-FROM ubuntu
+FROM  node:16.20.2-bookworm
 WORKDIR /usr/src/app
 COPY . .
-#install node
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash
-RUN apt update
-RUN apt install nodejs -y
-RUN apt install npm -y
 #check installation
 RUN node -v
 RUN npm -v

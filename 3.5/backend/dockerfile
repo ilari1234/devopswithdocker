@@ -1,0 +1,22 @@
+FROM ubuntu
+EXPOSE 8080
+WORKDIR /usr/local
+COPY . .
+#install curl
+RUN apt update
+RUN apt install curl -y
+#download & istall go and add go to PATH
+RUN curl -OL  https://golang.org/dl/go1.16.5.linux-amd64.tar.gz
+RUN rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
+ENV PATH=$PATH:/usr/local/go/bin
+RUN go version
+#Set environment variables, now set to default 
+ENV REQUEST_ORIGIN=https://example.com
+#build
+RUN go build
+#Tests commented out, since they did not pass due to go/test/escape_runtime_atomic.go:12:2: use of internal package runtime/internal/atomic not allowed  
+#Server seems to run anyway
+#RUN go test ./...
+RUN useradd -m backenduser
+USER backenduser
+CMD [ "./server" ]

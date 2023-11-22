@@ -1,0 +1,6 @@
+FROM docker
+RUN apk update
+RUN apk add git
+WORKDIR /script
+COPY . .
+ENTRYPOINT ["/script/builder.sh"]

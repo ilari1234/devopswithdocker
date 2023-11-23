@@ -1,0 +1,14 @@
+FROM  node:16.20.2-bookworm
+WORKDIR /usr/src/app
+COPY . .
+RUN node -v && \
+    npm -v  && \
+    npm install && \
+    npm run build && \
+    npm install -g serve && \
+    useradd frontenduser &&
+USER frontenduser
+CMD ["serve", "-s", "-l", "5000", "build"]
+
+#original size 1.39 gb
+#new size 1.39 gb

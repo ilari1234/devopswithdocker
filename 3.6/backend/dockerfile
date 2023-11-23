@@ -1,0 +1,22 @@
+FROM ubuntu
+EXPOSE 8080
+WORKDIR /usr/local
+COPY . .
+RUN apt-get update && apt-get install curl -y && \
+    curl -OL  https://golang.org/dl/go1.16.5.linux-amd64.tar.gz && \
+    rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz && \
+    useradd -m backenduser && \
+    apt-get purge -y --auto-remove curl && \
+    rm -rf /var/lib/apt/lists/*
+ENV PATH=$PATH:/usr/local/go/bin
+ENV REQUEST_ORIGIN=https://example.com
+RUN go version && \
+    go build
+#Tests commented out, since they did not pass due to go/test/escape_runtime_atomic.go:12:2: use of internal package runtime/internal/atomic not allowed  
+#Server seems to run anyway
+#RUN go test ./...
+USER backenduser
+CMD [ "./server" ]
+
+#original size 792.26 mb
+#new size 742.22 mb

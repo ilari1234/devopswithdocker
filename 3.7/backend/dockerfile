@@ -1,0 +1,16 @@
+FROM alpine:3.14
+EXPOSE 8080
+RUN apk --no-cache add go=1.16.15-r0 && \
+    adduser -D backenduser
+ENV GOPATH /go
+ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
+WORKDIR /app
+COPY . .
+ENV REQUEST_ORIGIN=https://example.com
+RUN go version && \
+    go build
+USER backenduser
+CMD [ "./server" ]
+
+#original size 742.22 mb
+#new size 604.82

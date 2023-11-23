@@ -1,0 +1,14 @@
+FROM  node:16.20.2-alpine3.18
+WORKDIR /usr/src/app
+COPY . .
+RUN node -v && \
+    npm -v  && \
+    npm install && \
+    npm run build && \
+    npm install -g serve && \
+    adduser -D frontenduser
+USER frontenduser
+CMD ["serve", "-s", "-l", "5000", "build"]
+
+#original size 1.39 gb
+#new size 476.41 mb
